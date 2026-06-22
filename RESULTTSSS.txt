@@ -1,0 +1,36 @@
+ Step 1: Generating Synthetic Tabular Dataset (500 Records) ---
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 500 entries, 0 to 499
+Data columns (total 4 columns):
+ #   Column    Non-Null Count  Dtype
+---  ------    --------------  -----
+ 0   bed       500 non-null    int32
+ 1   bath      500 non-null    int32
+ 2   acre_lot  491 non-null    float64
+ 3   price     500 non-null    float64
+dtypes: float64(2), int32(2)
+memory usage: 11.8 KB
+None
+
+--- Step 2: Splitting Data (80% Train / 20% Test) ---
+Training samples: 400 | Testing samples: 100
+
+--- Step 3: Preprocessing (Median Imputation & Z-score Scaling) ---
+Preprocessing complete.
+
+--- Step 4: Training Baseline Linear Regression ---
+--- Step 5: Tuning Random Forest via GridSearchCV (3-Fold CV) ---
+
+=======================================================
+             EXPERIMENTAL RESULTS SUMMARY
+=======================================================
+Best Random Forest Parameters: {'max_depth': 10, 'n_estimators': 100}
+
+Metric     | Linear Regression (Baseline)   | Random Forest Regressor
+---------------------------------------------------------------------------
+R2 Score   | 0.9801                         | 0.9691
+MAE        | 10232.42                       | 14822.08
+RMSE       | 16475.71                       | 20534.84
+=======================================================
+
+Conclusion: Baseline Linear Regression successfully outperformed the Random Forest model.
